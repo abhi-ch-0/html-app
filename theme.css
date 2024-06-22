@@ -11,28 +11,46 @@ body {
     background-color: #333;
     padding-top: 60px;
     position: fixed;
-    height: 100%;
+    height: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.nav-items, .nav-settings {
+.nav-items {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.nav-items li, .nav-settings li {
+.nav-items li {
     padding: 10px;
     text-align: center;
 }
 
-.nav-items li a, .nav-settings li a {
+.nav-items li a {
     color: #E0E0E0;
     text-decoration: none;
     display: block;
     padding: 10px 0;
 }
 
+.nav-settings {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-settings li {
+    padding: 10px;
+    text-align: center;
+}
+
 .nav-settings li a {
+    color: #E0E0E0;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
     font-weight: bold;
 }
 
@@ -43,6 +61,7 @@ body {
 .content {
     margin-left: 200px;
     padding: 20px;
+    flex-grow: 1;
 }
 
 .nav-toggle {
