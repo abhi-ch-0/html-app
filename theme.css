@@ -9,7 +9,7 @@ body {
 .sidebar {
     width: 200px;
     background-color: #333;
-    padding-top: 20px;
+    padding-top: 60px;
     position: fixed;
     height: 100%;
 }
@@ -40,6 +40,27 @@ body {
     padding: 20px;
 }
 
+.nav-toggle {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #333;
+    color: #E0E0E0;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-toggle svg {
+    fill: #E0E0E0;
+}
+
 @media (max-width: 768px) {
     .sidebar {
         display: none;
@@ -47,5 +68,9 @@ body {
 
     .content {
         margin-left: 0;
+    }
+
+    .nav-toggle {
+        display: flex;
     }
 }
