@@ -27,6 +27,7 @@ function generateNavItems() {
 // Function to generate cards
 function generateCards() {
     const cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = ''; // Clear existing cards
     cards.forEach(card => {
         if (card.image) {
             const cardDiv = document.createElement('div');
@@ -91,6 +92,17 @@ function handleResize() {
     }
 }
 
+// Function to handle the addition of a new card
+function addNewCard() {
+    const newCard = {
+        text: `Card ${cards.length + 1}`,
+        link: `https://example.com/${cards.length + 1}`,
+        image: 'https://via.placeholder.com/150'
+    };
+    cards.push(newCard);
+    generateCards(); // Regenerate cards to include the new card
+}
+
 // Initialize the page
 window.addEventListener('resize', handleResize);
 window.addEventListener('load', () => {
@@ -98,3 +110,6 @@ window.addEventListener('load', () => {
     generateNavItems(); // Generate nav items on page load
     generateCards(); // Generate cards on page load
 });
+
+// Add event listener to the floating button
+document.getElementById('add-card-button').addEventListener('click', addNewCard);
