@@ -14,24 +14,29 @@ body {
     height: 100%;
 }
 
-.sidebar ul {
+.nav-items, .nav-settings {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
-.sidebar ul li {
+.nav-items li, .nav-settings li {
     padding: 10px;
     text-align: center;
 }
 
-.sidebar ul li a {
+.nav-items li a, .nav-settings li a {
     color: #E0E0E0;
     text-decoration: none;
     display: block;
     padding: 10px 0;
 }
 
-.sidebar ul li a:hover {
+.nav-settings li a {
+    font-weight: bold;
+}
+
+.nav-items li a:hover, .nav-settings li a:hover {
     background-color: #575757;
 }
 
