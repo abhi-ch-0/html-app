@@ -92,15 +92,49 @@ function handleResize() {
     }
 }
 
-// Function to handle the addition of a new card
-function addNewCard() {
-    const newCard = {
-        text: `Card ${cards.length + 1}`,
-        link: `https://example.com/${cards.length + 1}`,
-        image: 'https://via.placeholder.com/150'
-    };
-    cards.push(newCard);
-    generateCards(); // Regenerate cards to include the new card
+// Function to open the popup
+function openAddCardPopup() {
+    document.getElementById('card-title').value = ''; // Clear the card title input
+    document.getElementById('card-link').value = '';  // Clear the card link input
+    document.getElementById('add-card-popup').style.display = 'flex';
+}
+
+// Function to close the popup
+function closeAddCardPopup() {
+    document.getElementById('card-title').value = ''; // Clear the card title input
+    document.getElementById('card-link').value = '';  // Clear the card link input
+    document.getElementById('add-card-popup').style.display = 'none';
+}
+
+// Function to handle the addition of a new card from the popup
+function handleAddCard() {
+    const title = document.getElementById('card-title').value;
+    const link = document.getElementById('card-link').value;
+
+    if (title && link) {
+        const newCard = {
+            text: title,
+            link: link,
+            image: 'https://via.placeholder.com/150' // Default image
+        };
+        cards.push(newCard);
+        generateCards(); // Regenerate cards to include the new card
+        closeAddCardPopup(); // Close the popup
+    } else {
+        alert('Please fill in all fields.');
+    }
+}
+
+// Add event listeners for the popup
+document.getElementById('add-card-button').addEventListener('click', openAddCardPopup);
+document.getElementById('close-popup').addEventListener('click', closeAddCardPopup);
+document.getElementById('submit-card').addEventListener('click', handleAddCard);
+
+// Close the popup if the user clicks outside of it
+window.onclick = function(event) {
+    if (event.target == document.getElementById('add-card-popup')) {
+        closeAddCardPopup();
+    }
 }
 
 // Function to handle the editing of a card
@@ -115,6 +149,5 @@ window.addEventListener('load', () => {
     generateCards(); // Generate cards on page load
 });
 
-// Add event listener to the floating buttons
-document.getElementById('add-card-button').addEventListener('click', addNewCard);
+// Add event listener to the edit button
 document.getElementById('edit-card-button').addEventListener('click', editCard);
