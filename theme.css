@@ -129,6 +129,16 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+#edit-card-button {
+    bottom: 80px;
+    background-color: #4caf50;
+}
+
+.floating-button:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {

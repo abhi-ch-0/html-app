@@ -103,6 +103,10 @@ function addNewCard() {
     generateCards(); // Regenerate cards to include the new card
 }
 
+// Function to handle the editing of a card
+function editCard() {
+}
+
 // Initialize the page
 window.addEventListener('resize', handleResize);
 window.addEventListener('load', () => {
@@ -111,5 +115,6 @@ window.addEventListener('load', () => {
     generateCards(); // Generate cards on page load
 });
 
-// Add event listener to the floating button
+// Add event listener to the floating buttons
 document.getElementById('add-card-button').addEventListener('click', addNewCard);
+document.getElementById('edit-card-button').addEventListener('click', editCard);
