@@ -1,3 +1,23 @@
+// List of nav items
+const navItems = [
+    { name: 'Home', link: '#' },
+    { name: 'Bookmarks', link: '#' }
+];
+
+// Function to generate nav items
+function generateNavItems() {
+    const navItemsContainer = document.getElementById('nav-items');
+    navItems.forEach(item => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = item.link;
+        a.textContent = item.name;
+        li.appendChild(a);
+        navItemsContainer.appendChild(li);
+    });
+}
+
+// Function to toggle sidebar visibility
 function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
     var navIcon = document.getElementById('nav-icon');
@@ -17,6 +37,7 @@ function toggleSidebar() {
     }
 }
 
+// Function to handle window resize event
 function handleResize() {
     var sidebar = document.getElementById('sidebar');
     var navIcon = document.getElementById('nav-icon');
@@ -37,5 +58,9 @@ function handleResize() {
     }
 }
 
+// Initialize the page
 window.addEventListener('resize', handleResize);
-window.addEventListener('load', handleResize);
+window.addEventListener('load', () => {
+    handleResize();
+    generateNavItems(); // Generate nav items on page load
+});
