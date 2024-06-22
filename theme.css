@@ -64,6 +64,24 @@ body {
     flex-grow: 1;
 }
 
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card:hover {
+    background-color: #555;
+}
+
 .nav-toggle {
     display: none;
     cursor: pointer;

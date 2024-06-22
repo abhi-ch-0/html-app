@@ -4,6 +4,13 @@ const navItems = [
     { name: 'Bookmarks', link: '#' }
 ];
 
+// List of cards
+const cards = [
+    { text: 'Card 1', link: 'https://example.com/1' },
+    { text: 'Card 2', link: 'https://example.com/2' },
+    { text: 'Card 3', link: 'https://example.com/3' }
+];
+
 // Function to generate nav items
 function generateNavItems() {
     const navItemsContainer = document.getElementById('nav-items');
@@ -14,6 +21,20 @@ function generateNavItems() {
         a.textContent = item.name;
         li.appendChild(a);
         navItemsContainer.appendChild(li);
+    });
+}
+
+// Function to generate cards
+function generateCards() {
+    const cardContainer = document.getElementById('card-container');
+    cards.forEach(card => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        cardDiv.textContent = card.text;
+        cardDiv.onclick = () => {
+            window.location.href = card.link;
+        };
+        cardContainer.appendChild(cardDiv);
     });
 }
 
@@ -63,4 +84,5 @@ window.addEventListener('resize', handleResize);
 window.addEventListener('load', () => {
     handleResize();
     generateNavItems(); // Generate nav items on page load
+    generateCards(); // Generate cards on page load
 });
