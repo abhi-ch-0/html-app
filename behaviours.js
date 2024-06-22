@@ -4,11 +4,11 @@ const navItems = [
     { name: 'Bookmarks', link: '#' }
 ];
 
-// List of cards
+// List of cards with mandatory images
 const cards = [
-    { text: 'Card 1', link: 'https://example.com/1' },
-    { text: 'Card 2', link: 'https://example.com/2' },
-    { text: 'Card 3', link: 'https://example.com/3' }
+    { text: 'Card 1', link: 'https://example.com/1', image: 'https://via.placeholder.com/150' },
+    { text: 'Card 2', link: 'https://example.com/2', image: 'https://via.placeholder.com/150' },
+    { text: 'Card 3', link: 'https://example.com/3', image: 'https://via.placeholder.com/150' }
 ];
 
 // Function to generate nav items
@@ -28,13 +28,25 @@ function generateNavItems() {
 function generateCards() {
     const cardContainer = document.getElementById('card-container');
     cards.forEach(card => {
-        const cardDiv = document.createElement('div');
-        cardDiv.className = 'card';
-        cardDiv.textContent = card.text;
-        cardDiv.onclick = () => {
-            window.location.href = card.link;
-        };
-        cardContainer.appendChild(cardDiv);
+        if (card.image) {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'card';
+            
+            const img = document.createElement('img');
+            img.src = card.image;
+            img.alt = card.text;
+            cardDiv.appendChild(img);
+
+            const textDiv = document.createElement('div');
+            textDiv.textContent = card.text;
+            cardDiv.appendChild(textDiv);
+
+            cardDiv.onclick = () => {
+                window.location.href = card.link;
+            };
+
+            cardContainer.appendChild(cardDiv);
+        }
     });
 }
 
