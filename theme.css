@@ -185,24 +185,7 @@ body {
   font-size: 16px; /* Ensure font size is consistent */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   box-sizing: border-box; /* Include padding and border in element's total width and height */
-}
-
-/* Close button */
-.close {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  float: right;
-  padding: 0;
-  margin-bottom: 14px;
-}
-
-.close svg {
-  display: block;
-}
-
-.close:hover svg line {
-  stroke: #e64a19; /* Change color to red on hover */
+  position: relative; /* Add position relative */
 }
 
 /* Popup form input styles */

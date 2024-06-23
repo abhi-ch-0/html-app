@@ -131,7 +131,7 @@ function handleAddCard() {
     };
     cards.push(newCard);
     generateCards(); // Regenerate cards to include the new card
-    closeAddCardPopup(); // Close the popup
+    document.getElementById("add-card-popup").style.display = "none"; // Close the popup
   } else {
     alert("Please fill in all fields.");
   }
@@ -141,20 +141,20 @@ function handleAddCard() {
 document
   .getElementById("add-card-button")
   .addEventListener("click", openAddCardPopup);
-document
-  .getElementById("close-popup")
-  .addEventListener("click", closeAddCardPopup);
+
 document.getElementById("submit-card").addEventListener("click", handleAddCard);
 
 // Close the popup if the user clicks outside of it
 window.onclick = function (event) {
   if (event.target == document.getElementById("add-card-popup")) {
-    closeAddCardPopup();
+    document.getElementById("add-card-popup").style.display = "none";
   }
 };
 
 // Function to handle the editing of a card
-function editCard() {}
+function editCard() {
+  alert("Edit card functionality is not implemented yet.");
+}
 
 // Initialize the page
 window.addEventListener("resize", handleResize);
